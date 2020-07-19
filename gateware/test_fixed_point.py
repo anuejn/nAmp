@@ -9,7 +9,7 @@ from fixed_point import *
 
 
 class TestFixedPoint(unittest.TestCase):
-    fmt = FixedPointFormat(8, 16)
+    fmt = Q(8, 16)
     test_values = [math.pi, math.e, math.sqrt(2), -.5, -42]
 
     def _resolve(self, expr):
@@ -49,26 +49,30 @@ class TestFixedPoint(unittest.TestCase):
             fp = self._resolve_fp(self.fmt.Const(a) - self.fmt.Const(b))
             self.assertLess(abs(real - fp), 0.001, "real: {}; got: {}".format(real, fp))
 
-    def test_convert(self):
+    def test_cast(self):
         for v in self.test_values:
-            fp = self._resolve_fp(self.fmt.Const(v).convert(FixedPointFormat(10, 32)))
+            fp = self._resolve_fp(self.fmt.Const(v).cast(Q(10, 32)))
             self.assertLess(abs(v - fp), 0.001, "real: {}; got: {}".format(v, fp))
 
         for v in self.test_values:
-            fp = self._resolve_fp(self.fmt.Const(v).convert(FixedPointFormat(10, 3)))
+            fp = self._resolve_fp(self.fmt.Const(v).cast(Q(10, 3), allow_precision_loss=True))
             self.assertLess(abs(v - fp), 0.1, "real: {}; got: {}".format(v, fp))
 
         for v in self.test_values:
-            fp = self._resolve_fp(self.fmt.Const(v).convert(FixedPointFormat(10, 0)))
+            fp = self._resolve_fp(self.fmt.Const(v).cast(Q(10, 0), allow_precision_loss=True))
             self.assertLess(abs(v - fp), 1, "real: {}; got: {}".format(v, fp))
 
         for v in self.test_values:
-            fp = self._resolve_fp(self.fmt.Const(v).convert(FixedPointFormat(1, 8)))
+            fp = self._resolve_fp(self.fmt.Const(v).cast(Q(1, 16), allow_clamp=True))
             if abs(v) > 1:
                 self.assertLess(abs(fp) - 1, 1e-10, "real: {}; got: {}".format(v, fp))
             else:
                 self.assertLess(abs(v - fp), 1e-10, "real: {}; got: {}".format(v, fp))
 
+    def test_const_clamp(self):
+        self.assertEqual(self.fmt.to_float(self.fmt.max), self._resolve_fp(self.fmt.Const(20000, allow_clamp=True)))
+        self.assertEqual(self.fmt.to_float(self.fmt.min), self._resolve_fp(self.fmt.Const(-20000, allow_clamp=True)))
+
     def test_min_max(self):
-        print(self._resolve_fp(self.fmt.min))
-        print(self._resolve_fp(self.fmt.max))
+        print(self.fmt.to_float(self.fmt.min))
+        print(self.fmt.to_float(self.fmt.max))

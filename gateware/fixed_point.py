@@ -1,9 +1,8 @@
-from dataclasses import dataclass
 from math import floor
 
 from nmigen import *
 
-__all__ = ["FixedPointFormat", "FixedPointValue"]
+__all__ = ["FixedPointValue", "Q"]
 
 
 class FixedPointFormat:
@@ -35,24 +34,57 @@ class FixedPointFormat:
 
     @property
     def min(self):
-        return FixedPointValue(self, Const(-(2 ** (len(self) - 1)), signed(len(self))))
+        return -(2 ** (len(self) - 1))
 
     @property
     def max(self):
-        return FixedPointValue(self, Const((2 ** (len(self) - 1)) - 1, signed(len(self))))
+        return (2 ** (len(self) - 1)) - 1
 
-    def Const(self, value, src_loc_at=0):
-        assert value < (2 ** (self.bits_before_point - 1))
-        return FixedPointValue(self, Const(self.to_int(value), signed(len(self)), src_loc_at=src_loc_at + 1))
+    def cast(self, value):
+        if isinstance(value, FixedPointValue):
+            return value.cast(self)
+        elif isinstance(value, Value):
+            return Q(len(value), 0).Value(value)
+        elif isinstance(value, (int, float)):
+            return self.Const(value)
+        else:
+            raise ValueError("{!r} cant be turned into a fixed point value".format(value))
 
-    def Signal(self, reset=0, src_loc_at=0, **kwargs):
-        return FixedPointValue(self, Signal(
+    def Value(self, value):
+        return FixedPointValue(self, value)
+
+    def Const(self, value, src_loc_at=0, allow_clamp=False):
+        if self.to_int(value) > self.max:
+            if allow_clamp:
+                i_val = self.max
+            else:
+                raise ValueError("{} is too big for the format {!r}. maximum is {}".format(value, self, self.to_float(self.max)))
+        elif self.to_int(value) < self.min:
+            if allow_clamp:
+                i_val = self.min
+            else:
+                raise ValueError("{} is too small for the format {!r}. minimum is {}".format(value, self, self.to_float(self.min)))
+        else:
+            i_val = self.to_int(value)
+        return self.ConstRaw(i_val, src_loc_at)
+
+    def ConstRaw(self, i_val, src_loc_at=0):
+        return self.Value(Const(i_val, signed(len(self)), src_loc_at=src_loc_at + 1))
+
+    def Signal(self, reset=0, src_loc_at=0, decode=False, **kwargs):
+        if decode:
+            kwargs = {"decoder": lambda i: str(self.to_float(i)), **kwargs}
+
+        return self.Value(Signal(
             signed(len(self)),
             src_loc_at=src_loc_at + 1,
             reset=self.to_int(reset),
-            decoder=lambda i: str(self.to_float(i)),
             **kwargs
         ))
+
+
+def Q(bits_before_point, bits_after_point):
+    return FixedPointFormat(bits_before_point, bits_after_point)
 
 
 class FixedPointValue:
@@ -63,7 +95,10 @@ class FixedPointValue:
         self.value = value
         self.fmt = fmt
 
-    def convert(self, fmt: FixedPointFormat):
+    def cast(self, fmt: FixedPointFormat, allow_clamp=False, allow_precision_loss=False):
+        if fmt == self.fmt:
+            return self
+
         bits_after_point: Value = self.value[:self.fmt.bits_after_point]
         assert len(bits_after_point) == self.fmt.bits_after_point
         if len(bits_after_point) < fmt.bits_after_point:
@@ -72,6 +107,7 @@ class FixedPointValue:
                 bits_after_point
             )
         elif len(bits_after_point) > fmt.bits_after_point:
+            assert allow_precision_loss
             new_bits_after_point = bits_after_point[len(bits_after_point) - fmt.bits_after_point:]
         else:
             new_bits_after_point = bits_after_point
@@ -84,40 +120,59 @@ class FixedPointValue:
                 Repl(bits_before_point[-1], fmt.bits_before_point - len(bits_before_point))
             )
         elif len(bits_before_point) > fmt.bits_before_point:
+            assert allow_clamp
             new_bits_before_point = Cat(bits_before_point[:fmt.bits_before_point - 1], bits_before_point[-1])
         else:
             new_bits_before_point = bits_before_point
 
         # implement clamping math
         value = Cat(new_bits_after_point, new_bits_before_point).as_signed()
+        min = fmt.ConstRaw(fmt.min)
+        max = fmt.ConstRaw(fmt.max)
         if len(bits_before_point) > fmt.bits_before_point:
-            value = Mux(self < fmt.min.convert(self.fmt),
-                        fmt.min.value,
-                        Mux(self > fmt.max.convert(self.fmt),
-                            fmt.max.value,
+            value = Mux(self < min,
+                        min.value,
+                        Mux(self > max,
+                            max.value,
                             value)
                         )
 
         return FixedPointValue(fmt, value)
 
-    def __add__(self, other):
-        assert isinstance(other, FixedPointValue)
-        assert other.fmt == self.fmt
+    def eq(self, other):
+        other = self.fmt.cast(other)
 
-        return_value = self.value + other.value
-        return FixedPointValue(
-            FixedPointFormat(len(return_value) - self.fmt.bits_after_point, self.fmt.bits_after_point), return_value)
+        return self.value.eq(other.value)
+
+    def _make_same_fmt(self, other):
+        new_fmt = Q(
+            max(self.fmt.bits_before_point, other.fmt.bits_before_point if isinstance(other, FixedPointValue) else 0),
+            max(self.fmt.bits_after_point, other.fmt.bits_after_point if isinstance(other, FixedPointValue) else 0)
+        )
+        return new_fmt.cast(self), new_fmt.cast(other)
+
+    def __add__(self, other):
+        a, b = self._make_same_fmt(other)
+
+        return_value = a.value + b.value
+        return FixedPointValue(FixedPointFormat(len(return_value) - a.fmt.bits_after_point, a.fmt.bits_after_point),
+                               return_value)
+
+    def __radd__(self, other):
+        return self.__add__(other)
 
     def __sub__(self, other):
-        assert isinstance(other, FixedPointValue)
-        assert other.fmt == self.fmt
+        a, b = self._make_same_fmt(other)
 
-        return_value = self.value - other.value
-        return FixedPointValue(
-            FixedPointFormat(len(return_value) - self.fmt.bits_after_point, self.fmt.bits_after_point), return_value)
+        return_value = a.value - b.value
+        return FixedPointValue(FixedPointFormat(len(return_value) - a.fmt.bits_after_point, a.fmt.bits_after_point),
+                               return_value)
 
     def __mul__(self, other):
-        assert isinstance(other, FixedPointValue)
+        if isinstance(other, (int, float)) and other == 1:
+            return self
+
+        other = self.fmt.cast(other)
 
         return FixedPointValue(
             FixedPointFormat(
@@ -128,26 +183,21 @@ class FixedPointValue:
         )
 
     def __gt__(self, other):
-        assert isinstance(other, FixedPointValue)
-        assert other.fmt == self.fmt
-        return self.value > other.value
+        a, b = self._make_same_fmt(other)
+        return a.value > b.value
 
     def __ge__(self, other):
-        assert isinstance(other, FixedPointValue)
-        assert other.fmt == self.fmt
-        return self.value >= other.value
+        a, b = self._make_same_fmt(other)
+        return a.value >= b.value
 
     def __lt__(self, other):
-        assert isinstance(other, FixedPointValue)
-        assert other.fmt == self.fmt
-        return self.value < other.value
+        a, b = self._make_same_fmt(other)
+        return a.value < b.value
 
     def __le__(self, other):
-        assert isinstance(other, FixedPointValue)
-        assert other.fmt == self.fmt
-        return self.value <= other.value
+        a, b = self._make_same_fmt(other)
+        return a.value <= b.value
 
     def __eq__(self, other):
-        assert isinstance(other, FixedPointValue)
-        assert other.fmt == self.fmt
-        return self.value == other.value
+        a, b = self._make_same_fmt(other)
+        return a.value == b.value
