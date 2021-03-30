@@ -1,19 +1,19 @@
-from numba import jit
-import numpy as np
-from scipy.signal import resample
+from nmigen import *
 
 
-def modulate(input, *, n_bits, oversampling_ratio):
-    resampled = resample(input, len(input) * oversampling_ratio)
+class Pwm(Elaboratable):
+    def __init__(self, value, bits=8):
+        self.bits = bits
+        self.value = value
 
-    quantized_samples = np.array(np.round(resampled * 2 ** n_bits), dtype=int)
+        self.output = Signal()
 
-    @jit
-    def loop():
-        output = np.zeros(len(resampled) * 2 ** n_bits)
-        for i, sample in enumerate(quantized_samples):
-            for j in range(sample):
-                output[(i * 2 ** n_bits) + j] = True
-        return output
+    def elaborate(self, platform):
+        m = Module()
 
-    return loop()
+        counter = Signal(self.bits)
+        m.d.sync += counter.eq(counter + 1)
+
+        m.d.comb += self.output.eq(counter > self.value)
+
+        return m

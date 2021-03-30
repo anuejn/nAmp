@@ -1,0 +1,4 @@
+.sim_results/
+__pycache__/
+build/
+.idea/

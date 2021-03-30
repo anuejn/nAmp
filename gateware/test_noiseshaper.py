@@ -4,7 +4,7 @@ from nmigen import *
 from nmigen.sim.pysim import Simulator
 import numpy as np
 
-import pwm
+import py_pwm
 from fixed_point import *
 from noiseshaper_cifb import Noiseshaper
 
@@ -73,7 +73,7 @@ class TestNoiseshaper(unittest.TestCase):
         plt.legend(loc=4)
         plt.show()
 
-        pwm_out = pwm.modulate(np.array(output_hist)+32, n_bits=6, oversampling_ratio=1)
+        pwm_out = py_pwm.modulate(np.array(output_hist) + 32, n_bits=6, oversampling_ratio=1)
         n = n * 64
         f = np.linspace(0, 0.5, int(n / 2. + 1))
         spec = np.fft.fft(pwm_out * ds.ds_hann(n)) / (n / 4)

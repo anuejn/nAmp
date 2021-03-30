@@ -1,30 +1,6 @@
 # class-d-igital
 A fully digital class d amp using an FPGA
 
-## General Architecture
-![Architecture Diagram](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
-<details> 
-<summary></summary>
-custom_mark10
-  digraph {
-    node [shape=box];
-    rankdir=LR;
-    usb [shape=none];
-    usb -> stm32
-    
-    i2s [shape=none];
-    
-    i2s -> fpga [label=pcm]
-    stm32 -> fpga [label=pcm]
-    
-    fpga -> mosfet [label="1 bit stream"]
-    mosfet [shape=none];
-    
-  }
-custom_mark10
-</details>
-
-
 ## Modulator research
 Finding a well suited modulator to implement in the FPGA is one of the most important issues.
 There are several approaches that could be taken: 
@@ -40,4 +16,3 @@ There are several approaches that could be taken:
     and moderate internal clock (-> implementability in the fpga)
 -> Simulation is needed!
 
-## Modulator Simulation
