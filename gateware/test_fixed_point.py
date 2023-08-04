@@ -2,8 +2,8 @@ import math
 import unittest
 from itertools import product
 
-from nmigen import *
-from nmigen.sim.pysim import Simulator
+from amaranth import *
+from amaranth.sim import Simulator
 
 from fixed_point import *
 

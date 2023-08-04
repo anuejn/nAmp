@@ -1,5 +1,5 @@
 import subprocess
-from nmigen.back import rtlil
+from amaranth.back import rtlil
 import re
 
 
@@ -10,9 +10,13 @@ def get_size(module, *args, **kwargs):
         read_ilang <<rtlil
         {}
         rtlil
-        flatten
-        
-        synth_ecp5 -abc9
+
+        synth -flatten -noabc
+        read_liberty -lib /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib
+        abc -liberty /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib
+        dfflibmap -liberty /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib
+        opt -full
+        stat -liberty /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib
     """.format(rtlil_text)
 
     popen = subprocess.Popen(["yosys", "-s", "-"],
@@ -20,12 +24,11 @@ def get_size(module, *args, **kwargs):
                              stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,
                              encoding="utf-8")
-    output, error = popen.communicate(script)
-
-    print(output)
+    output, error = popen.communicate(script) 
+    # print(output)   
 
     try:
-        cells = int(re.search("LUT4\\W*(\\d+)", output).group(1))
+        cells = float(re.search("Chip area for module '\\\\top':\\W*(\\d+)", output).group(1))
     except:
         cells = 0
 

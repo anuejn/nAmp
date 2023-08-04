@@ -1,6 +1,6 @@
 from math import floor
 
-from nmigen import *
+from amaranth import *
 
 __all__ = ["FixedPointValue", "Q"]
 
