@@ -6,9 +6,9 @@ from yosys import get_size
 from pathlib import Path
 
 if __name__ == "__main__":
-    fmt = Q(1, 18)
+    fmt = Q(1, 15)
     input = fmt.Signal()
-    noiseshaper = Noiseshaper(input, order=3, n_lev=2, osr=200, fmt=Q(2, 18))
+    noiseshaper = Noiseshaper(input, order=3, n_lev=2, osr=200, fmt=Q(2, 17))
     print(f"{noiseshaper.umax=}")
 
     from amaranth.back.verilog import convert

@@ -46,29 +46,35 @@ def get_snr(fmt: Q, input: Signal, dut):
 if __name__ == "__main__":
     file = Path("space_osr_200.csv")
     with file.open("a") as f:
-        f.write("# order, q, snr, area\n")
-    for order in range(1, 8):
-        for q in range(8, 20):
-            print(f"{order=}, {q=}")
-            fmt = Q(2, q)
+        f.write("# order, bits, bits_before, snr, area\n")
+    for order in range(2, 8):
+        for bits in range(8, 24):
+            print(f"{order=}, {bits=}")
+            fmt = Q(1, 15)
             input = fmt.Signal()
-            noiseshaper = Noiseshaper(input, order=order, n_lev=2, osr=200)
 
-            try:
-                snr = get_snr(fmt, input, noiseshaper)
-            except:
+            found = False
+            for bits_before in range(1, 6):
+                try:
+                    noiseshaper = Noiseshaper(input, order=order, n_lev=2, osr=200, fmt=Q(bits_before, bits - bits_before))
+                    snr = get_snr(fmt, input, noiseshaper)
+                    found = True
+                    break
+                except ValueError as e:
+                    print(f"# failed {order=}, {bits=}, {bits_before=}")
+            if not found:
                 with file.open("a") as f:
-                    f.write(f"# failed {order}, {q}, xxx, xxx\n")
-                print(f"# failed {order}, {q}, xxx, xxx\n")
+                        f.write(f"# failed {order}, {bits}, xxx, xxx\n")
+                print(f"# failed finally {order=}, {bits=}")
                 continue
-            print(f"{snr=}")
+            print(f"# found {order=}, {bits=}, {bits_before=}, {snr=}")
 
 
             from amaranth.back.verilog import convert
             verilog = convert(noiseshaper, ports=[noiseshaper.input.value, noiseshaper.output])
             area = get_size(noiseshaper, ports=[noiseshaper.input.value, noiseshaper.output])
-            print(f"{area=}")
+            print(f"# found {order=}, {bits=}, {bits_before=}, {snr=}, {area=}")
 
             with file.open("a") as f:
-                f.write(f"{order}, {q}, {snr}, {area}\n")
+                f.write(f"{order}, {bits}, {bits_before}, {snr}, {area}\n")
 

@@ -1,0 +1,7 @@
+{
+    "DESIGN_NAME": "top",
+    "VERILOG_FILES": "dir::./*.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 100,
+    "DESIGN_IS_CORE": false
+}

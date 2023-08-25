@@ -1,0 +1,11 @@
+read_verilog noiseshaper.v
+hierarchy -top top
+
+
+read_liberty -lib /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib
+synth -flatten -noabc
+abc -liberty /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib
+dfflibmap -liberty /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib
+opt -full
+
+stat -liberty /Users/anuejn/tmp/openlane-ci-designs/inverter/runs/RUN_2023-08-04_11-58-02/tmp/5221c3280114471a8e38997698419cbb.lib

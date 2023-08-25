@@ -64,7 +64,7 @@ class Noiseshaper(Elaboratable):
 
 if __name__ == "__main__":
     fmt = Q(1, 15)
-    noiseshaper = Noiseshaper(fmt.Signal(name="input"), order=3, osr=200, fmt=Q(2, 17))
+    noiseshaper = Noiseshaper(fmt.Signal(name="in"), order=3, osr=200, fmt=Q(2, [17]))
     print(f"{noiseshaper.umax=}")
 
     from amaranth.back.verilog import convert

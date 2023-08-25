@@ -1,0 +1,479 @@
+# order, q, snr, area
+2, 8, 61.51569606932692, 3898.0
+2, 9, 64.75264105467318, 6846.0
+2, 10, 65.17261659980575, 10218.0
+2, 11, 72.75460349328058, 12971.0
+2, 12, 73.41252967356145, 12326.0
+2, 13, 80.6935828447559, 17030.0
+2, 14, 80.66517550829006, 20861.0
+2, 15, 85.07791075556783, 27850.0
+2, 16, 91.89962129297699, 31973.0
+2, 17, 88.9115214503394, 33584.0
+2, 18, 94.51291302571974, 32581.0
+2, 19, 98.45682684876198, 38907.0
+2, 20, 95.19506597252825, 45220.0
+2, 21, 93.29896283533668, 49208.0
+2, 22, 93.797532977939, 57376.0
+2, 23, 93.75590633520453, 52516.0
+2, 24, 93.49218391016164, 65086.0
+2, 25, 92.3791543258131, 66017.0
+3, 8, 64.08783154254662, 9435.0
+3, 9, 71.30729661565522, 11694.0
+3, 10, 75.29111604343346, 14561.0
+3, 11, 78.86894368242105, 17885.0
+3, 12, 81.25430498038745, 23583.0
+3, 13, 88.36388711475641, 29758.0
+3, 14, 88.64715668533299, 39640.0
+3, 15, 97.56214804943212, 43216.0
+3, 16, 103.37687075020754, 43633.0
+3, 17, 111.21908377125145, 55828.0
+3, 18, 113.08821690865763, 52794.0
+3, 19, 117.89920523850937, 57078.0
+3, 20, 115.31396344976758, 70292.0
+3, 21, 116.92430414295737, 78640.0
+3, 22, 118.83975332293998, 86426.0
+3, 23, 119.1752386452331, 89629.0
+3, 24, 117.69332500761435, 86882.0
+3, 25, 117.40493604527991, 100784.0
+4, 8, 62.11705081916355, 10404.0
+4, 9, 60.387457817448755, 12685.0
+4, 10, 66.80818810004719, 14863.0
+4, 11, 71.26840216065766, 21649.0
+4, 12, 74.04375481029358, 26945.0
+4, 13, 80.74080575329444, 41124.0
+4, 14, 82.94483063183927, 45095.0
+4, 15, 87.86626678503995, 52232.0
+4, 16, 92.48617952596065, 56659.0
+4, 17, 101.44222091104163, 71905.0
+4, 18, 108.41544140713198, 75289.0
+4, 19, 115.47452055765093, 87958.0
+4, 20, 115.85169713868802, 100865.0
+4, 21, 117.9180561220821, 105682.0
+4, 22, 119.9971777801696, 115683.0
+4, 23, 120.1001269016328, 124839.0
+4, 24, 120.29926455499266, 137347.0
+4, 25, 120.36211298769801, 133810.0
+5, 8, 62.50286231634301, 14067.0
+5, 9, 69.03161076513857, 21210.0
+5, 10, 75.73122350625533, 25942.0
+5, 11, 70.69457591664428, 31855.0
+5, 12, 78.00612699683603, 41274.0
+5, 13, 83.92665568339211, 45299.0
+5, 14, 90.08665612430953, 52094.0
+5, 15, 95.47346071271575, 57447.0
+5, 16, 98.42654313844, 70749.0
+5, 17, 116.83311175254559, 99100.0
+5, 18, 117.52395450108828, 97657.0
+5, 19, 114.69377679555734, 108057.0
+5, 20, 122.09704077276699, 115859.0
+5, 21, 121.24016818917524, 127492.0
+5, 22, 120.31076348352308, 129512.0
+5, 23, 120.39425522922214, 145086.0
+5, 24, 120.41046250043891, 145761.0
+5, 25, 120.31529131265187, 169561.0
+# order, bits, bits_before, snr, area
+# failed 2, 8, xxx, xxx
+# failed 2, 9, xxx, xxx
+# failed 2, 10, xxx, xxx
+# failed 2, 11, xxx, xxx
+# failed 2, 12, xxx, xxx
+# failed 2, 13, xxx, xxx
+# failed 2, 14, xxx, xxx
+# failed 2, 15, xxx, xxx
+# failed 2, 16, xxx, xxx
+# failed 2, 17, xxx, xxx
+# failed 2, 18, xxx, xxx
+# failed 2, 19, xxx, xxx
+# failed 2, 20, xxx, xxx
+# failed 2, 21, xxx, xxx
+# failed 2, 22, xxx, xxx
+# failed 2, 23, xxx, xxx
+# failed 3, 8, xxx, xxx
+# failed 3, 9, xxx, xxx
+# failed 3, 10, xxx, xxx
+# failed 3, 11, xxx, xxx
+# failed 3, 12, xxx, xxx
+# failed 3, 13, xxx, xxx
+# failed 3, 14, xxx, xxx
+# failed 3, 15, xxx, xxx
+# failed 3, 16, xxx, xxx
+# failed 3, 17, xxx, xxx
+# failed 3, 18, xxx, xxx
+# failed 3, 19, xxx, xxx
+# failed 3, 20, xxx, xxx
+# failed 3, 21, xxx, xxx
+# failed 3, 22, xxx, xxx
+# failed 3, 23, xxx, xxx
+# failed 4, 8, xxx, xxx
+# failed 4, 9, xxx, xxx
+# failed 4, 10, xxx, xxx
+# failed 4, 11, xxx, xxx
+# failed 4, 12, xxx, xxx
+# failed 4, 13, xxx, xxx
+# failed 4, 14, xxx, xxx
+# failed 4, 15, xxx, xxx
+# failed 4, 16, xxx, xxx
+# failed 4, 17, xxx, xxx
+# failed 4, 18, xxx, xxx
+# failed 4, 19, xxx, xxx
+# failed 4, 20, xxx, xxx
+# failed 4, 21, xxx, xxx
+# failed 4, 22, xxx, xxx
+# failed 4, 23, xxx, xxx
+# failed 5, 8, xxx, xxx
+# failed 5, 9, xxx, xxx
+# failed 5, 10, xxx, xxx
+# failed 5, 11, xxx, xxx
+# failed 5, 12, xxx, xxx
+# failed 5, 13, xxx, xxx
+# failed 5, 14, xxx, xxx
+# failed 5, 15, xxx, xxx
+# failed 5, 16, xxx, xxx
+# failed 5, 17, xxx, xxx
+# failed 5, 18, xxx, xxx
+# failed 5, 19, xxx, xxx
+# failed 5, 20, xxx, xxx
+# order, bits, bits_before, snr, area
+# failed 2, 8, xxx, xxx
+# failed 2, 9, xxx, xxx
+# failed 2, 10, xxx, xxx
+# failed 2, 11, xxx, xxx
+# failed 2, 12, xxx, xxx
+# failed 2, 13, xxx, xxx
+# failed 2, 14, xxx, xxx
+# failed 2, 15, xxx, xxx
+# failed 2, 16, xxx, xxx
+# failed 2, 17, xxx, xxx
+# failed 2, 18, xxx, xxx
+# failed 2, 19, xxx, xxx
+# failed 2, 20, xxx, xxx
+# failed 2, 21, xxx, xxx
+# failed 2, 22, xxx, xxx
+# failed 2, 23, xxx, xxx
+# failed 3, 8, xxx, xxx
+# failed 3, 9, xxx, xxx
+# failed 3, 10, xxx, xxx
+# failed 3, 11, xxx, xxx
+# failed 3, 12, xxx, xxx
+# failed 3, 13, xxx, xxx
+# failed 3, 14, xxx, xxx
+# failed 3, 15, xxx, xxx
+# failed 3, 16, xxx, xxx
+# failed 3, 17, xxx, xxx
+# failed 3, 18, xxx, xxx
+# failed 3, 19, xxx, xxx
+# failed 3, 20, xxx, xxx
+# failed 3, 21, xxx, xxx
+# failed 3, 22, xxx, xxx
+# failed 3, 23, xxx, xxx
+# failed 4, 8, xxx, xxx
+# failed 4, 9, xxx, xxx
+# failed 4, 10, xxx, xxx
+# failed 4, 11, xxx, xxx
+# order, bits, bits_before, snr, area
+# failed 2, 8, xxx, xxx
+# failed 2, 9, xxx, xxx
+# failed 2, 10, xxx, xxx
+# failed 2, 11, xxx, xxx
+# failed 2, 12, xxx, xxx
+# failed 2, 13, xxx, xxx
+# failed 2, 14, xxx, xxx
+# failed 2, 15, xxx, xxx
+# failed 2, 16, xxx, xxx
+# failed 2, 17, xxx, xxx
+# failed 2, 18, xxx, xxx
+# failed 2, 19, xxx, xxx
+# failed 2, 20, xxx, xxx
+# failed 2, 21, xxx, xxx
+# failed 2, 22, xxx, xxx
+# failed 2, 23, xxx, xxx
+# failed 3, 8, xxx, xxx
+# failed 3, 9, xxx, xxx
+# failed 3, 10, xxx, xxx
+# failed 3, 11, xxx, xxx
+# failed 3, 12, xxx, xxx
+# failed 3, 13, xxx, xxx
+# failed 3, 14, xxx, xxx
+# failed 3, 15, xxx, xxx
+# failed 3, 16, xxx, xxx
+# failed 3, 17, xxx, xxx
+# failed 3, 18, xxx, xxx
+# failed 3, 19, xxx, xxx
+# failed 3, 20, xxx, xxx
+# failed 3, 21, xxx, xxx
+# failed 3, 22, xxx, xxx
+# failed 3, 23, xxx, xxx
+# failed 4, 8, xxx, xxx
+# failed 4, 9, xxx, xxx
+# failed 4, 10, xxx, xxx
+# failed 4, 11, xxx, xxx
+# failed 4, 12, xxx, xxx
+# failed 4, 13, xxx, xxx
+# failed 4, 14, xxx, xxx
+# failed 4, 15, xxx, xxx
+# failed 4, 16, xxx, xxx
+# failed 4, 17, xxx, xxx
+# failed 4, 18, xxx, xxx
+# failed 4, 19, xxx, xxx
+# failed 4, 20, xxx, xxx
+# failed 4, 21, xxx, xxx
+# failed 4, 22, xxx, xxx
+# failed 4, 23, xxx, xxx
+# failed 5, 8, xxx, xxx
+# failed 5, 9, xxx, xxx
+# failed 5, 10, xxx, xxx
+# failed 5, 11, xxx, xxx
+# failed 5, 12, xxx, xxx
+# failed 5, 13, xxx, xxx
+# failed 5, 14, xxx, xxx
+# failed 5, 15, xxx, xxx
+# failed 5, 16, xxx, xxx
+# failed 5, 17, xxx, xxx
+# failed 5, 18, xxx, xxx
+# failed 5, 19, xxx, xxx
+# failed 5, 20, xxx, xxx
+# failed 5, 21, xxx, xxx
+# failed 5, 22, xxx, xxx
+# failed 5, 23, xxx, xxx
+# failed 6, 8, xxx, xxx
+# failed 6, 9, xxx, xxx
+# failed 6, 10, xxx, xxx
+# failed 6, 11, xxx, xxx
+# failed 6, 12, xxx, xxx
+# failed 6, 13, xxx, xxx
+# failed 6, 14, xxx, xxx
+# failed 6, 15, xxx, xxx
+# failed 6, 16, xxx, xxx
+# failed 6, 17, xxx, xxx
+# failed 6, 18, xxx, xxx
+# failed 6, 19, xxx, xxx
+# failed 6, 20, xxx, xxx
+# failed 6, 21, xxx, xxx
+# failed 6, 22, xxx, xxx
+# failed 6, 23, xxx, xxx
+# failed 7, 8, xxx, xxx
+# failed 7, 9, xxx, xxx
+# failed 7, 10, xxx, xxx
+# failed 7, 11, xxx, xxx
+# failed 7, 12, xxx, xxx
+# failed 7, 13, xxx, xxx
+# failed 7, 14, xxx, xxx
+# failed 7, 15, xxx, xxx
+# failed 7, 16, xxx, xxx
+# failed 7, 17, xxx, xxx
+# failed 7, 18, xxx, xxx
+# failed 7, 19, xxx, xxx
+# failed 7, 20, xxx, xxx
+# failed 7, 21, xxx, xxx
+# failed 7, 22, xxx, xxx
+# failed 7, 23, xxx, xxx
+# order, bits, bits_before, snr, area
+# failed 2, 8, xxx, xxx
+# failed 2, 9, xxx, xxx
+# failed 2, 10, xxx, xxx
+# failed 2, 11, xxx, xxx
+# failed 2, 12, xxx, xxx
+# failed 2, 13, xxx, xxx
+# failed 2, 14, xxx, xxx
+# failed 2, 15, xxx, xxx
+# failed 2, 16, xxx, xxx
+# failed 2, 17, xxx, xxx
+# failed 2, 18, xxx, xxx
+# failed 2, 19, xxx, xxx
+# failed 2, 20, xxx, xxx
+# failed 2, 21, xxx, xxx
+# failed 2, 22, xxx, xxx
+# failed 2, 23, xxx, xxx
+# failed 3, 8, xxx, xxx
+# failed 3, 9, xxx, xxx
+# failed 3, 10, xxx, xxx
+# failed 3, 11, xxx, xxx
+# failed 3, 12, xxx, xxx
+# failed 3, 13, xxx, xxx
+# failed 3, 14, xxx, xxx
+# failed 3, 15, xxx, xxx
+# failed 3, 16, xxx, xxx
+# failed 3, 17, xxx, xxx
+# failed 3, 18, xxx, xxx
+# failed 3, 19, xxx, xxx
+# failed 3, 20, xxx, xxx
+# failed 3, 21, xxx, xxx
+# failed 3, 22, xxx, xxx
+# failed 3, 23, xxx, xxx
+# failed 4, 8, xxx, xxx
+# failed 4, 9, xxx, xxx
+# failed 4, 10, xxx, xxx
+# failed 4, 11, xxx, xxx
+# failed 4, 12, xxx, xxx
+# failed 4, 13, xxx, xxx
+# failed 4, 14, xxx, xxx
+# failed 4, 15, xxx, xxx
+# failed 4, 16, xxx, xxx
+# failed 4, 17, xxx, xxx
+# failed 4, 18, xxx, xxx
+# failed 4, 19, xxx, xxx
+# failed 4, 20, xxx, xxx
+# failed 4, 21, xxx, xxx
+# failed 4, 22, xxx, xxx
+# failed 4, 23, xxx, xxx
+# failed 5, 8, xxx, xxx
+# failed 5, 9, xxx, xxx
+# failed 5, 10, xxx, xxx
+# failed 5, 11, xxx, xxx
+# failed 5, 12, xxx, xxx
+# failed 5, 13, xxx, xxx
+# failed 5, 14, xxx, xxx
+# failed 5, 15, xxx, xxx
+# failed 5, 16, xxx, xxx
+# failed 5, 17, xxx, xxx
+# failed 5, 18, xxx, xxx
+# failed 5, 19, xxx, xxx
+# failed 5, 20, xxx, xxx
+# failed 5, 21, xxx, xxx
+# failed 5, 22, xxx, xxx
+# failed 5, 23, xxx, xxx
+# failed 6, 8, xxx, xxx
+# failed 6, 9, xxx, xxx
+# failed 6, 10, xxx, xxx
+# failed 6, 11, xxx, xxx
+# failed 6, 12, xxx, xxx
+# failed 6, 13, xxx, xxx
+# failed 6, 14, xxx, xxx
+# failed 6, 15, xxx, xxx
+# failed 6, 16, xxx, xxx
+# failed 6, 17, xxx, xxx
+# failed 6, 18, xxx, xxx
+# failed 6, 19, xxx, xxx
+# failed 6, 20, xxx, xxx
+# failed 6, 21, xxx, xxx
+# failed 6, 22, xxx, xxx
+# failed 6, 23, xxx, xxx
+# failed 7, 8, xxx, xxx
+# failed 7, 9, xxx, xxx
+# failed 7, 10, xxx, xxx
+# failed 7, 11, xxx, xxx
+# failed 7, 12, xxx, xxx
+# failed 7, 13, xxx, xxx
+# failed 7, 14, xxx, xxx
+# failed 7, 15, xxx, xxx
+# failed 7, 16, xxx, xxx
+# failed 7, 17, xxx, xxx
+# failed 7, 18, xxx, xxx
+# failed 7, 19, xxx, xxx
+# failed 7, 20, xxx, xxx
+# failed 7, 21, xxx, xxx
+# failed 7, 22, xxx, xxx
+# failed 7, 23, xxx, xxx
+# order, bits, bits_before, snr, area
+# failed 2, 8, xxx, xxx
+# failed 2, 9, xxx, xxx
+# failed 2, 10, xxx, xxx
+# failed 2, 11, xxx, xxx
+# failed 2, 12, xxx, xxx
+# failed 2, 13, xxx, xxx
+# failed 2, 14, xxx, xxx
+# failed 2, 15, xxx, xxx
+# failed 2, 16, xxx, xxx
+# failed 2, 17, xxx, xxx
+# failed 2, 18, xxx, xxx
+# failed 2, 19, xxx, xxx
+# failed 2, 20, xxx, xxx
+# failed 2, 21, xxx, xxx
+# failed 2, 22, xxx, xxx
+# order, bits, bits_before, snr, area
+2, 8, 4, 61.51569606932692, 3898.0
+2, 9, 4, 64.75264105467318, 6846.0
+2, 10, 4, 65.17261659980575, 10218.0
+2, 11, 4, 72.75460349328058, 12971.0
+2, 12, 4, 73.41252967356145, 12326.0
+2, 13, 4, 80.6935828447559, 17030.0
+2, 14, 4, 80.66517550829006, 20861.0
+2, 15, 4, 85.07791075556783, 27850.0
+2, 16, 4, 91.89962129297699, 31973.0
+2, 17, 4, 88.9115214503394, 33584.0
+2, 18, 4, 94.51291302571974, 32581.0
+2, 19, 4, 98.45682684876198, 38907.0
+2, 20, 4, 95.19506597252825, 45220.0
+2, 21, 4, 93.29896283533668, 49208.0
+2, 22, 4, 93.797532977939, 57376.0
+2, 23, 4, 93.75590633520453, 52516.0
+3, 8, 2, 64.08783154254662, 9435.0
+3, 9, 2, 71.30729661565522, 11694.0
+3, 10, 2, 75.29111604343346, 14561.0
+3, 11, 2, 78.86894368242105, 17885.0
+3, 12, 2, 81.25430498038745, 23583.0
+3, 13, 2, 88.36388711475641, 29758.0
+3, 14, 2, 88.64715668533299, 39640.0
+3, 15, 2, 97.56214804943212, 43216.0
+3, 16, 2, 103.37687075020754, 43633.0
+3, 17, 2, 111.21908377125145, 55828.0
+3, 18, 2, 113.08821690865763, 52794.0
+3, 19, 2, 117.89920523850937, 57078.0
+3, 20, 2, 115.31396344976758, 70292.0
+3, 21, 2, 116.92430414295737, 78640.0
+3, 22, 2, 118.83975332293998, 86426.0
+3, 23, 2, 119.1752386452331, 89629.0
+4, 8, 3, 62.11705081916355, 10404.0
+4, 9, 3, 60.387457817448755, 12685.0
+4, 10, 3, 66.80818810004719, 14863.0
+4, 11, 3, 71.26840216065766, 21649.0
+4, 12, 3, 74.04375481029358, 26945.0
+4, 13, 3, 80.74080575329444, 41124.0
+4, 14, 3, 82.94483063183927, 45095.0
+4, 15, 3, 87.86626678503995, 52232.0
+4, 16, 3, 92.48617952596065, 56659.0
+4, 17, 3, 101.44222091104163, 71905.0
+4, 18, 3, 108.41544140713198, 75289.0
+4, 19, 3, 115.47452055765093, 87958.0
+4, 20, 3, 115.85169713868802, 100865.0
+4, 21, 3, 117.9180561220821, 105682.0
+4, 22, 3, 119.9971777801696, 115683.0
+4, 23, 3, 120.1001269016328, 124839.0
+5, 8, 2, 62.50286231634301, 14067.0
+5, 9, 2, 69.03161076513857, 21210.0
+5, 10, 2, 75.73122350625533, 25942.0
+5, 11, 2, 70.69457591664428, 31855.0
+5, 12, 2, 78.00612699683603, 41274.0
+5, 13, 2, 83.92665568339211, 45299.0
+5, 14, 2, 90.08665612430953, 52094.0
+5, 15, 2, 95.47346071271575, 57447.0
+5, 16, 2, 98.42654313844, 70749.0
+5, 17, 2, 116.83311175254559, 99100.0
+5, 18, 2, 117.52395450108828, 97657.0
+5, 19, 2, 114.69377679555734, 108057.0
+5, 20, 2, 122.09704077276699, 115859.0
+5, 21, 2, 121.24016818917524, 127492.0
+5, 22, 2, 120.31076348352308, 129512.0
+5, 23, 2, 120.39425522922214, 145086.0
+6, 8, 2, 61.903275677568395, 21614.0
+6, 9, 2, 66.49192296057534, 26649.0
+6, 10, 2, 71.79651363297856, 29423.0
+6, 11, 2, 70.4774357746949, 41289.0
+6, 12, 2, 79.30774909220492, 51606.0
+6, 13, 2, 83.10329270451103, 57789.0
+6, 14, 2, 89.85461761811004, 65691.0
+6, 15, 2, 95.60274388221188, 86193.0
+6, 16, 2, 98.9843094273249, 102887.0
+6, 17, 2, 110.44694031045361, 114061.0
+6, 18, 2, 111.46878231854635, 119029.0
+6, 19, 2, 116.54195490321642, 141978.0
+6, 20, 2, 117.48274509505485, 148581.0
+6, 21, 2, 119.89562105749886, 153467.0
+6, 22, 2, 120.29086544080144, 164271.0
+6, 23, 2, 120.30498021266706, 180774.0
+7, 8, 2, 57.613619780478956, 16274.0
+7, 9, 2, 60.55773723319301, 21461.0
+7, 10, 2, 67.22347788974324, 28856.0
+7, 11, 2, 68.84370915554766, 38394.0
+7, 12, 2, 73.95441035054145, 44845.0
+7, 13, 2, 80.42774410759378, 56470.0
+7, 14, 2, 89.92677029131237, 77918.0
+7, 15, 2, 90.96127173755431, 84084.0
+7, 16, 2, 97.8327164428692, 98660.0
+7, 17, 2, 107.70458194300579, 118640.0
+7, 18, 2, 111.98249831856877, 131944.0
+7, 19, 2, 111.54019027585207, 133694.0
+7, 20, 2, 115.82828648036525, 152197.0
+7, 21, 2, 120.25911855332232, 174949.0
+7, 22, 2, 119.94523412649484, 177631.0
+7, 23, 2, 120.62708484196546, 198948.0

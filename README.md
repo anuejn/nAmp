@@ -1,18 +1,15 @@
-# class-d-igital
-A fully digital class d amp using an FPGA
+# nAmp
+research & experiments for outputting analog audio using digital IO pins.
 
-## Modulator research
-Finding a well suited modulator to implement in the FPGA is one of the most important issues.
-There are several approaches that could be taken: 
+Most notably, this repository contains an [amaranth-lang](https://github.com/amaranth-lang/amaranth)
+[fixed-point library](gateware/fixed_point.py) and an implementation of a 
+[delta-sigma noiseshaper](gateware/noiseshaper_cifb.py) that can be used to output
+analog audio from FPGAs or ASICs.
 
-| modulator                    | pros                                   | cons                                                                  |
-| ---------------------------- | -------------------------------------- | --------------------------------------------------------------------- |
-| PWM (Pulse Width Modulation) | + very constant switching frequency    | - Only 8bit (48dB SNR) resolution is practical (600kHz * 2^8 = 153Mhz) |
-| PPM (Pulse Pause Modulation) | + better dynamic range than PWM        | - Many Switching Processes for high amplitudes                        |
-|                              |                                        | - Not garantueed to be out of audio band                              |
-| Delta-Sigma                  | + Very high dynamic range is achivable | - Many Switching Processes (Poor Power Performance)                   |
+The noiseshaper will (hopefully) be taped out as part of the
+[FPGA-Ignite Summer School](https://fpga-ignite.github.io/) hackathon ASIC. For the details of the
+physical implementation, see [the openlane folder](./openlane/).
 
--> A custom modulator needs to be created to meet the requirements of high SNR, low switching frequency (-> power efficiency)   
-    and moderate internal clock (-> implementability in the fpga)
--> Simulation is needed!
-
+Originally, this repository contained ideas and research for building a fully digital class D 
+amplifier using an FPGA (thus the name), however that effort stalled a bit. If you are interested 
+in pursuing this further, feel free to contact me :).
